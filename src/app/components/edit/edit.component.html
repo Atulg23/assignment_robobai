@@ -1,0 +1,57 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Production Id</label>
+        <input type="text" class="form-control" name="prod_id" formControlName="prod_id" #prod_id [(ngModel)] = "adunit.prod_id"/>
+      </div>
+      <div *ngIf="angForm.controls['prod_id'].invalid && (angForm.controls['prod_id'].dirty || angForm.controls['prod_id'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['unit_price'].errors.required">
+          Production Id is required.
+        </div>
+      </div>
+            <div class="form-group">
+        <label class="col-md-4">Qualtity</label>
+        <input type="text" class="form-control" name="quantity" formControlName="quantity" #quantity [(ngModel)] = "adunit.quantity"/>
+      </div>
+      <div *ngIf="angForm.controls['quantity'].invalid && (angForm.controls['quantity'].dirty || angForm.controls['quantity'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['quantity'].errors.required">
+          Quantity is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Production Name</label>
+        <input type="text" class="form-control" name="prod_name" formControlName="prod_name" #prod_name [(ngModel)] = "adunit.prod_name"/>
+      </div>
+      <div *ngIf="angForm.controls['prod_name'].invalid && (angForm.controls['prod_name'].dirty || angForm.controls['quantity'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['prod_name'].errors.required">
+          Production Name is required.
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="col-md-4">Cost Price</label>
+        <input type="text" class="form-control" name="cost_price" formControlName="cost_price" #cost_price [(ngModel)] = "adunit.cost_price"/>
+      </div>
+      <div *ngIf="angForm.controls['cost_price'].invalid && (angForm.controls['cost_price'].dirty || angForm.controls['cost_price'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['cost_price'].errors.required">
+          Cost Price is required.
+        </div>
+      </div>
+     
+      <div class="form-group">
+        <label class="col-md-4">Selling Price</label>
+        <input type="text" class="form-control" name="selling_price" formControlName="selling_price" #selling_price [(ngModel)] = "adunit.selling_price"/>
+      </div>
+      <div *ngIf="angForm.controls['selling_price'].invalid && (angForm.controls['selling_price'].dirty || angForm.controls['selling_price'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['selling_price'].errors.required">
+          Selling Price is required.
+        </div>
+      </div>
+     
+      <div class="form-group">
+        <button (click)="updateAdUnit(prod_id.value, quantity.value, prod_name.value, cost_price.value, selling_price.value)" [disabled]="angForm.invalid" class="btn btn-primary">Update Product</button>
+      </div>
+    </form>
+  </div>
+</div>
